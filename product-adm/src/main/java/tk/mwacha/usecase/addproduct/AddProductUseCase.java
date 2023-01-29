@@ -2,17 +2,18 @@ package tk.mwacha.usecase.addproduct;
 
 import lombok.RequiredArgsConstructor;
 import tk.mwacha.domain.Product;
-import tk.mwacha.gateway.ProductGateway;
+import tk.mwacha.repository.ProductModel;
+import tk.mwacha.repository.ProductRepository;
 
 @RequiredArgsConstructor
 public class AddProductUseCase {
     
-    private final ProductGateway productRepository;
+    private final ProductRepository productRepository;
 
     public Product execute(AddProductDTO dto) {
-        final var product = Product.of(dto);
+        final var product = ProductModel.of(dto);
 
-        return productRepository.add(product);
+        return Product.of(productRepository.save(product));
 
     }
 }

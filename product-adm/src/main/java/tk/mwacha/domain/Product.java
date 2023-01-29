@@ -6,11 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 import tk.mwacha.domain.entity.AggregateRoot;
 import tk.mwacha.domain.entity.BaseEntity;
-import tk.mwacha.domain.valueobject.Id;
-import tk.mwacha.usecase.addproduct.AddProductDTO;
+import tk.mwacha.repository.ProductModel;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Getter
@@ -23,12 +21,12 @@ public class Product extends BaseEntity implements AggregateRoot {
     private BigDecimal purchasePrice;
     private int stock;
 
-    public static Product of(final AddProductDTO dto) {
+    public static Product of(final ProductModel model) {
         return Product.builder()
-                .name(dto.getName())
-                .description(dto.getDescription())
-                .purchasePrice(dto.getPurchasePrice())
-                .stock(dto.getStock()).build();
+                .name(model.getName())
+                .description(model.getDescription())
+                .purchasePrice(model.getPurchasePrice())
+                .stock(model.getStock()).build();
     }
 
 }
