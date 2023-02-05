@@ -35,7 +35,7 @@ class AddProductUseCaseTest {
 
         final var result = useCase.execute(dto);
 
-        verify(productGateway, times(1)).create(any());
+        verify(productGateway, times(1)).add(any());
 
 
         assertNotNull(result.id());

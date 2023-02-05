@@ -3,8 +3,6 @@ package tk.mwacha.usecase.addproduct;
 import lombok.RequiredArgsConstructor;
 import tk.mwacha.domain.Product;
 import tk.mwacha.gateway.ProductGateway;
-import tk.mwacha.repository.ProductModel;
-import tk.mwacha.repository.ProductRepository;
 
 @RequiredArgsConstructor
 public class AddProductUseCase {
@@ -15,7 +13,7 @@ public class AddProductUseCase {
         final var product = Product.of(dto);
 
         product.generateID();
-        productGateway.create(product);
+        productGateway.add(product);
 
         return AddProductOutputDto.from(product);
 

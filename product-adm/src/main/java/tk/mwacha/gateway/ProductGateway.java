@@ -1,8 +1,11 @@
 package tk.mwacha.gateway;
 
 import tk.mwacha.domain.Product;
-import tk.mwacha.repository.ProductModel;
+
+import java.util.UUID;
 
 public interface ProductGateway {
-    void create(Product product);
+    void add(Product product);
+
+    Product find(UUID id);
 }
