@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import tk.mwacha.usecase.addproduct.AddProductDTO;
+import tk.mwacha.usecase.addproduct.AddProductInputDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -32,11 +32,4 @@ public class ProductModel {
 
    private LocalDateTime updatedAt;
 
-    public static ProductModel of(final AddProductDTO dto) {
-        return ProductModel.builder()
-                .name(dto.getName())
-                .description(dto.getDescription())
-                .purchasePrice(dto.getPurchasePrice())
-                .stock(dto.getStock()).build();
-    }
 }

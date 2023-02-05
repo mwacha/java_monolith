@@ -9,5 +9,5 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Id implements ValueObject {
 
-    private UUID id;
+    private UUID value;
 }

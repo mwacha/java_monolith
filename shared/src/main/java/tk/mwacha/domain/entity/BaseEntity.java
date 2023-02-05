@@ -9,6 +9,7 @@ import tk.mwacha.domain.valueobject.Id;
 
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,4 +22,8 @@ public class BaseEntity {
 
     @Setter
     private LocalDateTime updatedAt;
+
+    public void generateID() {
+        this.id = new Id(UUID.randomUUID());
+    }
 }

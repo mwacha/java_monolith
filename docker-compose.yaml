@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   dbpostgresql:
-    container_name: db-java-graphql
+    container_name: db-java-monolith
     image: postgres:latest
     restart: always
     ports:
