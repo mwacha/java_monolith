@@ -15,7 +15,7 @@ public class ProductRepository implements ProductGateway {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("INSERT INTO Product (id, name, description, purchasePrice, stock) values (:id, :name, :description, :purchasePrice, stock)")
+        em.createQuery("INSERT INTO ProductModel (id, name, description, purchasePrice, stock) values (:id, :name, :description, :purchasePrice, stock)")
                 .setParameter("id", product.getId())
                 .setParameter("name", product.getName())
                 .setParameter("description", product.getDescription())
@@ -28,6 +28,6 @@ public class ProductRepository implements ProductGateway {
     public Product find(final UUID id){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
-        return em.createQuery("SELECT p FROM Product p", Product.class).getSingleResult();
+        return em.createQuery("SELECT p FROM ProductModel p", Product.class).getSingleResult();
     }
 }
