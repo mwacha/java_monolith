@@ -1,12 +1,10 @@
 package tk.mwacha.domain.entity;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tk.mwacha.domain.valueobject.Id;
-
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -14,8 +12,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Entity
 public class BaseEntity {
+
 
     private Id id;
     private LocalDateTime createdAt;

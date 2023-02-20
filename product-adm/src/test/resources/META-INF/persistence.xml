@@ -7,10 +7,14 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.testcontainers.jdbc.ContainerDatabaseDriver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:tc:postgres:14.4://localhost:5432/java_monolith?TC_INITSCRIPT=DDL.sql" />
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:tc:postgres:14.4://localhost:5432/java_monolith?TC_INITSCRIPT=DDL.sql" />-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:tc:postgresql:14.4:///java_monolith" />
+
             <property name="javax.persistence.jdbc.user" value="postgres" />
             <property name="javax.persistence.jdbc.password" value="postgres" />
             <property name="hibernate.dialect" value="org.testcontainers.jdbc.ContainerDatabaseDriver" />
+            <property name="javax.persistence.sql-load-script-source" value="DDL.sql"/>
         </properties>
 
     </persistence-unit>
