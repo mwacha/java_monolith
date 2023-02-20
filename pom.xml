@@ -27,6 +27,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <revision>0.0.1</revision>
+        <plugin.flyway.schema>public</plugin.flyway.schema>
     </properties>
 
     <dependencies>
@@ -76,6 +77,24 @@
             <version>1.17.6</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>1.17.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>9.8.1</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>

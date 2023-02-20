@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class ProductRepository implements ProductGateway {
     public void add(Product product){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("java-monolith");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.createQuery("INSERT INTO Product (id, name, description, purchasePrice, stock) values (:id, :name, :description, :purchasePrice, stock)")
@@ -26,7 +26,7 @@ public class ProductRepository implements ProductGateway {
     }
 
     public Product find(final UUID id){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("java-monolith");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
         return em.createQuery("SELECT p FROM Product p", Product.class).getSingleResult();
     }

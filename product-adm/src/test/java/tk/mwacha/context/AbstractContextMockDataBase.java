@@ -1,9 +1,13 @@
 package tk.mwacha.context;
 
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 import tk.mwacha.rule.PostgresContainer;
 
-abstract class AbstractContextMockDataBase {
+//@Testcontainers
+public abstract class AbstractContextMockDataBase {
 
+   // @Container
     static final PostgresContainer POSTGRESQL_CONTAINER;
 
     static {

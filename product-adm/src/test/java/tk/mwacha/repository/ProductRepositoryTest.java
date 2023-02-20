@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import tk.mwacha.context.AbstractContextMockDataBase;
 import tk.mwacha.domain.Product;
 
 import java.math.BigDecimal;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
-class ProductRepositoryTest {
+class ProductRepositoryTest extends AbstractContextMockDataBase {
 
 
     private ProductRepository repository;

@@ -6,14 +6,11 @@
     <persistence-unit name="java_monolith">
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/java_monolith" />
+            <property name="javax.persistence.jdbc.driver" value="org.testcontainers.jdbc.ContainerDatabaseDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:tc:postgres:14.4://localhost:5432/java_monolith?TC_INITSCRIPT=DDL.sql" />
             <property name="javax.persistence.jdbc.user" value="postgres" />
             <property name="javax.persistence.jdbc.password" value="postgres" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.dialect" value="org.testcontainers.jdbc.ContainerDatabaseDriver" />
         </properties>
 
     </persistence-unit>
