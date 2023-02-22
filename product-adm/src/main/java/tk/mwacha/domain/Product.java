@@ -29,4 +29,12 @@ public class Product extends BaseEntity implements AggregateRoot {
                 .purchasePrice(dto.purchasePrice())
                 .stock(dto.stock()).build();
     }
+
+    public static Product of(final ProductModel model) {
+        return Product.builder()
+                .name(model.getName())
+                .description(model.getDescription())
+                .purchasePrice(model.getPurchasePrice())
+                .stock(model.getStock()).build();
+    }
 }

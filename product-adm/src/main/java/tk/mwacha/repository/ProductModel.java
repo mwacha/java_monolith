@@ -1,8 +1,6 @@
 package tk.mwacha.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import tk.mwacha.usecase.addproduct.AddProductInputDto;
 
@@ -20,6 +18,7 @@ import java.util.UUID;
 public class ProductModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private UUID id;
 
     private String name;

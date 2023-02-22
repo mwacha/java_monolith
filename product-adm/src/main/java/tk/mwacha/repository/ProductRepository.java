@@ -28,6 +28,8 @@ public class ProductRepository implements ProductGateway {
     public Product find(final UUID id){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
-        return em.createQuery("SELECT p FROM ProductModel p", Product.class).getSingleResult();
+        final var product = em.createQuery("SELECT p FROM ProductModel p", ProductModel.class).getSingleResult();
+
+        return Product.of(product);
     }
 }
