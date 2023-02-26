@@ -24,4 +24,8 @@ public class BaseEntity {
     public void generateID() {
         this.id = new Id(UUID.randomUUID());
     }
+
+    public void addID(final UUID id) {
+        this.id = new Id(id);
+    }
 }

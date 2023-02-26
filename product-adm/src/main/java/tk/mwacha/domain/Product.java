@@ -31,10 +31,14 @@ public class Product extends BaseEntity implements AggregateRoot {
     }
 
     public static Product of(final ProductModel model) {
-        return Product.builder()
+        final var product  = Product.builder()
                 .name(model.getName())
                 .description(model.getDescription())
                 .purchasePrice(model.getPurchasePrice())
                 .stock(model.getStock()).build();
+
+        product.addID(model.getId());
+
+        return product;
     }
 }

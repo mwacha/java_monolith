@@ -11,7 +11,7 @@ $$ LANGUAGE plpgsql;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE if not exists public.product (
-	id uuid NOT NULL PRIMARY KEY,
+	id2 uuid NOT NULL PRIMARY KEY,
 	"name" varchar NOT NULL,
 	description varchar NULL,
 	purchasePrice number,
