@@ -6,10 +6,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-//import tk.mwacha.IntegrationTest;
-//import tk.mwacha.context.AbstractContextMockDataBase;
 import tk.mwacha.domain.Product;
 
 import java.math.BigDecimal;
@@ -55,10 +51,7 @@ class ProductRepositoryTest  {
     @Test
     @Order(2)
     void should_find() {
-
-
-      final var product = makeProduct();
-
+        final var product = makeProduct();
 
         final var productDB = repository.find(product.getId().getValue());
 
