@@ -1,6 +1,6 @@
 package tk.mwacha.usecase;
 
-public interface UseCaseInterface {
+public interface UseCaseInterface <I, O>{
 
-    Object execute(Object input);
+    O execute(I input);
 }

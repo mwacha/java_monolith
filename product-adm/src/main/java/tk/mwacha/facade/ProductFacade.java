@@ -10,8 +10,8 @@ public class ProductFacade implements ProductFacadeInterface {
     private final UseCaseInterface addUseCase;
     private final UseCaseInterface stockUseCase;
     @Override
-    public void addProduct(ProductFacadeInput input) {
-        this.addUseCase.execute(input);
+    public ProductFacadeOutput addProduct(ProductFacadeInput input) {
+        return (ProductFacadeOutput) this.addUseCase.execute(input);
     }
 
     @Override

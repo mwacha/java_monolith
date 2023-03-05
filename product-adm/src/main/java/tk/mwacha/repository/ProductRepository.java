@@ -1,20 +1,20 @@
 package tk.mwacha.repository;
 
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.transaction.Transactional;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.transaction.Transactional;
 import tk.mwacha.domain.Product;
 import tk.mwacha.gateway.ProductGateway;
 
 import java.util.Objects;
 import java.util.UUID;
 
-@Transactional
+
 public class ProductRepository implements ProductGateway {
+
+    @Transactional
     public void add(Product product){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("java_monolith");
         EntityManager em = emf.createEntityManager();
