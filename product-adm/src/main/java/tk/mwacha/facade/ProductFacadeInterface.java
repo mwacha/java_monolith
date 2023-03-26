@@ -1,6 +1,11 @@
 package tk.mwacha.facade;
 
+import tk.mwacha.usecase.addproduct.ProductInput;
+import tk.mwacha.usecase.addproduct.ProductOutput;
+import tk.mwacha.usecase.checkstock.CheckStockInput;
+import tk.mwacha.usecase.checkstock.CheckStockOutput;
+
 public interface ProductFacadeInterface {
-    ProductFacadeOutput addProduct(final ProductFacadeInput input);
-    CheckStockFacadeOutput checkStock(final CheckStockFacadeInput input);
+    ProductOutput addProduct(final ProductInput input);
+    CheckStockOutput checkStock(final CheckStockInput input);
 }

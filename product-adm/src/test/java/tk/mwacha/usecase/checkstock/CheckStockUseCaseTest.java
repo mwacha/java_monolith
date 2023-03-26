@@ -5,20 +5,20 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import tk.mwacha.domain.Product;
 import tk.mwacha.gateway.ProductGateway;
-import tk.mwacha.usecase.addproduct.AddProductInputDto;
-import tk.mwacha.usecase.addproduct.AddProductUseCase;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class CheckStockUseCaseTest {
+
+    private static final UUID ID = UUID.randomUUID();
+    private static final int STOCK = 10;
 
     @Mock
     private ProductGateway productGateway;
@@ -28,15 +28,24 @@ class CheckStockUseCaseTest {
     @Test
     void should_get_stock_of_a_product() {
 
-        final var id = UUID.randomUUID();
-        final var dto = new CheckStockInput(id);
+        final var input = new CheckStockInput(ID);
 
-        final var result = useCase.execute(dto);
+        given(productGateway.find(ID))
+                .willReturn(make(ID));
 
-        verify(productGateway, times(1)).add(any());
+
+        final var result = useCase.execute(input);
 
         assertNotNull(result.productId());
-        assertTrue(result.productId().equals(id));
+        assertTrue(result.productId().equals(ID));
+        assertTrue(result.stock() == STOCK);
 
+    }
+
+    private Product make(final UUID id) {
+        final var product = Product.builder().stock(STOCK).build();
+        product.addID(id);
+
+        return product;
     }
 }

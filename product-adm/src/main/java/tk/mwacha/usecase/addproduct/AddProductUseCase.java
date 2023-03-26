@@ -6,17 +6,17 @@ import tk.mwacha.gateway.ProductGateway;
 import tk.mwacha.usecase.UseCaseInterface;
 
 @RequiredArgsConstructor
-public class AddProductUseCase implements UseCaseInterface<AddProductInputDto, AddProductOutputDto> {
+public class AddProductUseCase implements UseCaseInterface<ProductInput, ProductOutput> {
 
     private final ProductGateway productGateway;
 
-    public AddProductOutputDto execute(AddProductInputDto input) {
+    public ProductOutput execute(ProductInput input) {
         final var product = Product.of(input);
 
         product.generateID();
         productGateway.add(product);
 
-        return AddProductOutputDto.from(product);
+        return ProductOutput.from(product);
 
     }
 }

@@ -27,7 +27,7 @@ class AddProductUseCaseTest {
     @Test
     void should_add_product() {
 
-        final var dto = AddProductInputDto.of(
+        final var dto = ProductInput.of(
                 "Product 1",
                 "Product 1 description",
                 BigDecimal.valueOf(100),

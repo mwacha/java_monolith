@@ -2,7 +2,10 @@ package tk.mwacha.facade;
 
 import lombok.RequiredArgsConstructor;
 import tk.mwacha.usecase.UseCaseInterface;
-import tk.mwacha.usecase.addproduct.AddProductUseCase;
+import tk.mwacha.usecase.addproduct.ProductInput;
+import tk.mwacha.usecase.addproduct.ProductOutput;
+import tk.mwacha.usecase.checkstock.CheckStockInput;
+import tk.mwacha.usecase.checkstock.CheckStockOutput;
 
 @RequiredArgsConstructor
 public class ProductFacade implements ProductFacadeInterface {
@@ -10,12 +13,12 @@ public class ProductFacade implements ProductFacadeInterface {
     private final UseCaseInterface addUseCase;
     private final UseCaseInterface stockUseCase;
     @Override
-    public ProductFacadeOutput addProduct(ProductFacadeInput input) {
-        return (ProductFacadeOutput) this.addUseCase.execute(input);
+    public ProductOutput addProduct(ProductInput input) {
+        return (ProductOutput) this.addUseCase.execute(input);
     }
 
     @Override
-    public CheckStockFacadeOutput checkStock(CheckStockFacadeInput input) {
-        return (CheckStockFacadeOutput) this.stockUseCase.execute(input);
+    public CheckStockOutput checkStock(CheckStockInput input) {
+        return (CheckStockOutput) this.stockUseCase.execute(input);
     }
 }

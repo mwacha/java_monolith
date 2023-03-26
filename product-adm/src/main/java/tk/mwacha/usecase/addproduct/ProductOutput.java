@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record AddProductOutputDto(
+public record ProductOutput(
      UUID id,
      String name,
      String description,
@@ -15,8 +15,8 @@ public record AddProductOutputDto(
      LocalDateTime createdAt,
      LocalDateTime updatedAt) {
 
-    public static AddProductOutputDto from(final Product product) {
-        return new AddProductOutputDto(
+    public static ProductOutput from(final Product product) {
+        return new ProductOutput(
                 product.getId().getValue(),
                 product.getName(),
                 product.getDescription(),
