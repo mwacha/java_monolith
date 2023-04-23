@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-//@IntegrationTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class ProductRepositoryTest  {
 
