@@ -13,11 +13,13 @@ public class ClientFacade implements ClientFacadeInterface {
     private final AddClientUseCase addClientUseCase;
 
     @Override
-    public FindClientOutput find(FindClientInput input) {
-        return this.findUseCase.execute(input);
+    public FindClientFacadeOutput find(FindClientFacadeInput input) {
+        return FindClientFacadeOutput.from(this.findUseCase.execute(new FindClientInput(input.id())));
     }
 
-    public void add(final ClientInput client) {
-        this.addClientUseCase.execute(client);
+    @Override
+    public AddClientFacadeOutput add(AddClientFacadeInput clientInput) {
+        return AddClientFacadeOutput.of(this.addClientUseCase.execute(ClientInput.of(clientInput)));
     }
+
 }
