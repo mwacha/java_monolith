@@ -22,6 +22,7 @@
         <module>product-adm</module>
         <module>store-catalog</module>
         <module>client-adm</module>
+        <module>payment</module>
     </modules>
 
     <properties>
