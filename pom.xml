@@ -23,6 +23,7 @@
         <module>store-catalog</module>
         <module>client-adm</module>
         <module>payment</module>
+        <module>checkout</module>
     </modules>
 
     <properties>
